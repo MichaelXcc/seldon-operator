@@ -46,14 +46,17 @@ type Manager interface {
 	// Add will set reqeusted dependencies on the component, and cause the component to be
 	// started when Start is called.  Add will inject any dependencies for which the argument
 	// implements the inject interface - e.g. inject.Client
+	// Add 将设置组件上请求的依赖项，并在调用Start时启动组件。Add将注入任何由参数实现了inject接口的依赖项，例如inject。客户端
 	Add(Runnable) error
 
 	// SetFields will set any dependencies on an object for which the object has implemented the inject
+	// SetFields 将设置对象对已实现注入的对象的任何依赖项
 	// interface - e.g. inject.Client.
 	SetFields(interface{}) error
 
 	// Start starts all registered Controllers and blocks until the Stop channel is closed.
 	// Returns an error if there is an error starting any controller.
+	// 启动所有已注册的控制器并阻塞，直到停止通道关闭。如果启动任何控制器出现错误，则返回一个错误。
 	Start(<-chan struct{}) error
 
 	// GetConfig returns an initialized Config
@@ -75,6 +78,7 @@ type Manager interface {
 	GetCache() cache.Cache
 
 	// GetRecorder returns a new EventRecorder for the provided name
+	// a new EventRecorder for the provided name
 	GetRecorder(name string) record.EventRecorder
 
 	// GetRESTMapper returns a RESTMapper
@@ -128,6 +132,7 @@ type Options struct {
 }
 
 // Runnable allows a component to be started.
+// 允许启动组件
 type Runnable interface {
 	// Start starts running the component.  The component will stop running when the channel is closed.
 	// Start blocks until the channel is closed or an error occurs.

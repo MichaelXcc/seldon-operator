@@ -47,6 +47,7 @@ func main() {
 	}
 
 	// Create a new Cmd to provide shared dependencies and start components
+	// 创建一个新的Cmd来提供共享的依赖项和启动组件
 	log.Info("setting up manager")
 	mgr, err := manager.New(cfg, manager.Options{MetricsBindAddress: metricsAddr})
 	if err != nil {
@@ -64,6 +65,7 @@ func main() {
 	}
 
 	// Setup Scheme for all resources
+	// 为所有资源设置方案
 	log.Info("setting up istio scheme")
 	if err := istio.AddToScheme(mgr.GetScheme()); err != nil {
 		log.Error(err, "unable add istio APIs to scheme")

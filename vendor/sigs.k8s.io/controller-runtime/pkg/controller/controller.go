@@ -58,6 +58,7 @@ type Controller interface {
 
 // New returns a new Controller registered with the Manager.  The Manager will ensure that shared Caches have
 // been synced before the Controller is Started.
+// 返回注册到Manager的新Controller。管理器将确保在控制器启动之前已同步共享缓存。
 func New(name string, mgr manager.Manager, options Options) (Controller, error) {
 	if options.Reconciler == nil {
 		return nil, fmt.Errorf("must specify Reconciler")

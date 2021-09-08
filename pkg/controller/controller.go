@@ -21,6 +21,7 @@ import (
 )
 
 // AddToManagerFuncs is a list of functions to add all Controllers to the Manager
+// 是将所有控制器添加到管理器的函数列表
 var AddToManagerFuncs []func(manager.Manager) error
 
 // AddToManager adds all Controllers to the Manager

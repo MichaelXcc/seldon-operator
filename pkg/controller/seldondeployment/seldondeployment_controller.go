@@ -64,6 +64,7 @@ var log = logf.Log.WithName("seldon-controller")
 
 // Add creates a new SeldonDeployment Controller and adds it to the Manager with default RBAC. The Manager will set fields on the Controller
 // and Start it when the Manager is Started.
+// 创建一个新的SeldonDeployment Controller，并使用默认RBAC将其添加到Manager中。管理器将在控制器上设置字段，并在管理器启动时启动它。
 func Add(mgr manager.Manager) error {
 	return add(mgr, newReconciler(mgr))
 }

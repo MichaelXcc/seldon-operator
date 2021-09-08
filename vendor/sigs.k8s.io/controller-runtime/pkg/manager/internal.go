@@ -96,11 +96,13 @@ type controllerManager struct {
 }
 
 // Add sets dependencies on i, and adds it to the list of runnables to start.
+// 设置i的依赖项，并将其添加到要启动的可运行对象列表中。
 func (cm *controllerManager) Add(r Runnable) error {
 	cm.mu.Lock()
 	defer cm.mu.Unlock()
 
 	// Set dependencies on the object
+	// 设置对象的依赖关系
 	if err := cm.SetFields(r); err != nil {
 		return err
 	}
